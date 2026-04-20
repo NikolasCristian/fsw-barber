@@ -4,7 +4,7 @@
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -27,7 +27,7 @@ model BarberShop {
   address     String
   phone       String[]
   description String
-  imageURL    String
+  imageUrl    String
   createdAt   DateTime           @default(now())
   updatedAt   DateTime           @updatedAt
   services    BarbeShopService[]
@@ -37,7 +37,7 @@ model BarbeShopService {
   id          String     @id @default(uuid())
   name        String
   description String
-  imageURL    String
+  imageUrl    String
   price       Decimal    @db.Decimal(10, 2)
   barberId    String
   barbershop  BarberShop @relation(fields: [barberId], references: [id])
