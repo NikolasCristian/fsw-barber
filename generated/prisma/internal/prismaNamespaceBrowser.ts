@@ -93,7 +93,7 @@ export const BarberShopScalarFieldEnum = {
   address: "address",
   phone: "phone",
   description: "description",
-  imageURL: "imageURL",
+  imageUrl: "imageUrl",
   createdAt: "createdAt",
   updatedAt: "updatedAt",
 } as const
@@ -105,7 +105,7 @@ export const BarbeShopServiceScalarFieldEnum = {
   id: "id",
   name: "name",
   description: "description",
-  imageURL: "imageURL",
+  imageUrl: "imageUrl",
   price: "price",
   barberId: "barberId",
   createdAt: "createdAt",

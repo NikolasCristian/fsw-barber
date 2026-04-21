@@ -1,7 +1,7 @@
-import { PrismaClient } from "@prisma/client";
-import "dotenv/config";
+import { PrismaClient } from "@prisma/client"
+import "dotenv/config"
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 // O resto do código continua igual...
 
@@ -18,33 +18,83 @@ async function seedDatabase() {
       "https://utfs.io/f/60f24f5c-9ed3-40ba-8c92-0cd1dcd043f9-16w.png",
       "https://utfs.io/f/f64f1bd4-59ce-4ee3-972d-2399937eeafc-16x.png",
       "https://utfs.io/f/e995db6d-df96-4658-99f5-11132fd931e1-17j.png",
-    ];
+    ]
 
     const creativeNames = [
-      "Barbearia Vintage", "Corte & Estilo", "Barba & Navalha", "The Dapper Den",
-      "Cabelo & Cia.", "Machado & Tesoura", "Barbearia Elegance",
-      "Aparência Impecável", "Estilo Urbano", "Estilo Clássico",
-    ];
+      "Barbearia Vintage",
+      "Corte & Estilo",
+      "Barba & Navalha",
+      "The Dapper Den",
+      "Cabelo & Cia.",
+      "Machado & Tesoura",
+      "Barbearia Elegance",
+      "Aparência Impecável",
+      "Estilo Urbano",
+      "Estilo Clássico",
+    ]
 
     const addresses = [
-      "Rua da Barbearia, 123", "Avenida dos Cortes, 456", "Praça da Barba, 789",
-      "Travessa da Navalha, 101", "Alameda dos Estilos, 202", "Estrada do Machado, 303",
-      "Avenida Elegante, 404", "Praça da Aparência, 505", "Rua Urbana, 606", "Avenida Clássica, 707",
-    ];
+      "Rua da Barbearia, 123",
+      "Avenida dos Cortes, 456",
+      "Praça da Barba, 789",
+      "Travessa da Navalha, 101",
+      "Alameda dos Estilos, 202",
+      "Estrada do Machado, 303",
+      "Avenida Elegante, 404",
+      "Praça da Aparência, 505",
+      "Rua Urbana, 606",
+      "Avenida Clássica, 707",
+    ]
 
     const services = [
-      { name: "Corte de Cabelo", description: "Estilo personalizado com as últimas tendências.", price: 60.0, imageUrl: "https://utfs.io/f/0ddfbd26-a424-43a0-aaf3-c3f1dc6be6d1-1kgxo7.png" },
-      { name: "Barba", description: "Modelagem completa para destacar sua masculinidade.", price: 40.0, imageUrl: "https://utfs.io/f/e6bdffb6-24a9-455b-aba3-903c2c2b5bde-1jo6tu.png" },
-      { name: "Pézinho", description: "Acabamento perfeito para um visual renovado.", price: 35.0, imageUrl: "https://utfs.io/f/8a457cda-f768-411d-a737-cdb23ca6b9b5-b3pegf.png" },
-      { name: "Sobrancelha", description: "Expressão acentuada com modelagem precisa.", price: 20.0, imageUrl: "https://utfs.io/f/2118f76e-89e4-43e6-87c9-8f157500c333-b0ps0b.png" },
-      { name: "Massagem", description: "Relaxe com uma massagem revigorante.", price: 50.0, imageUrl: "https://utfs.io/f/c4919193-a675-4c47-9f21-ebd86d1c8e6a-4oen2a.png" },
-      { name: "Hidratação", description: "Hidratação profunda para cabelo e barba.", price: 25.0, imageUrl: "https://utfs.io/f/8a457cda-f768-411d-a737-cdb23ca6b9b5-b3pegf.png" },
-    ];
+      {
+        name: "Corte de Cabelo",
+        description: "Estilo personalizado com as últimas tendências.",
+        price: 60.0,
+        imageUrl:
+          "https://utfs.io/f/0ddfbd26-a424-43a0-aaf3-c3f1dc6be6d1-1kgxo7.png",
+      },
+      {
+        name: "Barba",
+        description: "Modelagem completa para destacar sua masculinidade.",
+        price: 40.0,
+        imageUrl:
+          "https://utfs.io/f/e6bdffb6-24a9-455b-aba3-903c2c2b5bde-1jo6tu.png",
+      },
+      {
+        name: "Pézinho",
+        description: "Acabamento perfeito para um visual renovado.",
+        price: 35.0,
+        imageUrl:
+          "https://utfs.io/f/8a457cda-f768-411d-a737-cdb23ca6b9b5-b3pegf.png",
+      },
+      {
+        name: "Sobrancelha",
+        description: "Expressão acentuada com modelagem precisa.",
+        price: 20.0,
+        imageUrl:
+          "https://utfs.io/f/2118f76e-89e4-43e6-87c9-8f157500c333-b0ps0b.png",
+      },
+      {
+        name: "Massagem",
+        description: "Relaxe com uma massagem revigorante.",
+        price: 50.0,
+        imageUrl:
+          "https://utfs.io/f/c4919193-a675-4c47-9f21-ebd86d1c8e6a-4oen2a.png",
+      },
+      {
+        name: "Hidratação",
+        description: "Hidratação profunda para cabelo e barba.",
+        price: 25.0,
+        imageUrl:
+          "https://utfs.io/f/8a457cda-f768-411d-a737-cdb23ca6b9b5-b3pegf.png",
+      },
+    ]
 
     for (let i = 0; i < 10; i++) {
-      const name = creativeNames[i];
-      const address = addresses[i];
-      const imageUrl = images[i];
+      const name = creativeNames[i]
+      const address = addresses[i]
+      const imageUrl = images[i]
 
       const barbershop = await prisma.barberShop.create({
         data: {
@@ -52,12 +102,14 @@ async function seedDatabase() {
           address,
           imageUrl,
           phone: ["(11) 99999-9999"], // No seu schema está String[], então precisa de []
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         },
-      });
+      })
 
       for (const service of services) {
-        await prisma.barbeShopService.create({ // Sem o "r" conforme seu schema: BarbeShop
+        await prisma.barbeShopService.create({
+          // Sem o "r" conforme seu schema: BarbeShop
           data: {
             name: service.name,
             description: service.description,
@@ -69,16 +121,16 @@ async function seedDatabase() {
               },
             },
           },
-        });
+        })
       }
     }
 
-    console.log("Banco de dados populado com sucesso! 🚀");
+    console.log("Banco de dados populado com sucesso! 🚀")
   } catch (error) {
-    console.error("Erro ao criar as barbearias:", error);
+    console.error("Erro ao criar as barbearias:", error)
   } finally {
-    await prisma.$disconnect();
+    await prisma.$disconnect()
   }
 }
 
-seedDatabase();
+seedDatabase()

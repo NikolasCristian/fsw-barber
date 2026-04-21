@@ -38,7 +38,7 @@ export type BarbeShopServiceMinAggregateOutputType = {
   id: string | null
   name: string | null
   description: string | null
-  imageURL: string | null
+  imageUrl: string | null
   price: runtime.Decimal | null
   barberId: string | null
   createdAt: Date | null
@@ -49,7 +49,7 @@ export type BarbeShopServiceMaxAggregateOutputType = {
   id: string | null
   name: string | null
   description: string | null
-  imageURL: string | null
+  imageUrl: string | null
   price: runtime.Decimal | null
   barberId: string | null
   createdAt: Date | null
@@ -60,7 +60,7 @@ export type BarbeShopServiceCountAggregateOutputType = {
   id: number
   name: number
   description: number
-  imageURL: number
+  imageUrl: number
   price: number
   barberId: number
   createdAt: number
@@ -80,7 +80,7 @@ export type BarbeShopServiceMinAggregateInputType = {
   id?: true
   name?: true
   description?: true
-  imageURL?: true
+  imageUrl?: true
   price?: true
   barberId?: true
   createdAt?: true
@@ -91,7 +91,7 @@ export type BarbeShopServiceMaxAggregateInputType = {
   id?: true
   name?: true
   description?: true
-  imageURL?: true
+  imageUrl?: true
   price?: true
   barberId?: true
   createdAt?: true
@@ -102,7 +102,7 @@ export type BarbeShopServiceCountAggregateInputType = {
   id?: true
   name?: true
   description?: true
-  imageURL?: true
+  imageUrl?: true
   price?: true
   barberId?: true
   createdAt?: true
@@ -211,7 +211,7 @@ export type BarbeShopServiceGroupByOutputType = {
   id: string
   name: string
   description: string
-  imageURL: string
+  imageUrl: string
   price: runtime.Decimal
   barberId: string
   createdAt: Date
@@ -245,7 +245,7 @@ export type BarbeShopServiceWhereInput = {
   id?: Prisma.StringFilter<"BarbeShopService"> | string
   name?: Prisma.StringFilter<"BarbeShopService"> | string
   description?: Prisma.StringFilter<"BarbeShopService"> | string
-  imageURL?: Prisma.StringFilter<"BarbeShopService"> | string
+  imageUrl?: Prisma.StringFilter<"BarbeShopService"> | string
   price?:
     | Prisma.DecimalFilter<"BarbeShopService">
     | runtime.Decimal
@@ -266,7 +266,7 @@ export type BarbeShopServiceOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  imageURL?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
   price?: Prisma.SortOrder
   barberId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -287,7 +287,7 @@ export type BarbeShopServiceWhereUniqueInput = Prisma.AtLeast<
       | Prisma.BarbeShopServiceWhereInput[]
     name?: Prisma.StringFilter<"BarbeShopService"> | string
     description?: Prisma.StringFilter<"BarbeShopService"> | string
-    imageURL?: Prisma.StringFilter<"BarbeShopService"> | string
+    imageUrl?: Prisma.StringFilter<"BarbeShopService"> | string
     price?:
       | Prisma.DecimalFilter<"BarbeShopService">
       | runtime.Decimal
@@ -310,7 +310,7 @@ export type BarbeShopServiceOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  imageURL?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
   price?: Prisma.SortOrder
   barberId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -333,7 +333,7 @@ export type BarbeShopServiceScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"BarbeShopService"> | string
   name?: Prisma.StringWithAggregatesFilter<"BarbeShopService"> | string
   description?: Prisma.StringWithAggregatesFilter<"BarbeShopService"> | string
-  imageURL?: Prisma.StringWithAggregatesFilter<"BarbeShopService"> | string
+  imageUrl?: Prisma.StringWithAggregatesFilter<"BarbeShopService"> | string
   price?:
     | Prisma.DecimalWithAggregatesFilter<"BarbeShopService">
     | runtime.Decimal
@@ -355,7 +355,7 @@ export type BarbeShopServiceCreateInput = {
   id?: string
   name: string
   description: string
-  imageURL: string
+  imageUrl: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -367,7 +367,7 @@ export type BarbeShopServiceUncheckedCreateInput = {
   id?: string
   name: string
   description: string
-  imageURL: string
+  imageUrl: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   barberId: string
   createdAt?: Date | string
@@ -379,7 +379,7 @@ export type BarbeShopServiceUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  imageURL?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   price?:
     | Prisma.DecimalFieldUpdateOperationsInput
     | runtime.Decimal
@@ -396,7 +396,7 @@ export type BarbeShopServiceUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  imageURL?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   price?:
     | Prisma.DecimalFieldUpdateOperationsInput
     | runtime.Decimal
@@ -413,7 +413,7 @@ export type BarbeShopServiceCreateManyInput = {
   id?: string
   name: string
   description: string
-  imageURL: string
+  imageUrl: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   barberId: string
   createdAt?: Date | string
@@ -424,7 +424,7 @@ export type BarbeShopServiceUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  imageURL?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   price?:
     | Prisma.DecimalFieldUpdateOperationsInput
     | runtime.Decimal
@@ -439,7 +439,7 @@ export type BarbeShopServiceUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  imageURL?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   price?:
     | Prisma.DecimalFieldUpdateOperationsInput
     | runtime.Decimal
@@ -465,7 +465,7 @@ export type BarbeShopServiceCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  imageURL?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
   price?: Prisma.SortOrder
   barberId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -480,7 +480,7 @@ export type BarbeShopServiceMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  imageURL?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
   price?: Prisma.SortOrder
   barberId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -491,7 +491,7 @@ export type BarbeShopServiceMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  imageURL?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
   price?: Prisma.SortOrder
   barberId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -655,7 +655,7 @@ export type BarbeShopServiceCreateWithoutBarbershopInput = {
   id?: string
   name: string
   description: string
-  imageURL: string
+  imageUrl: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -666,7 +666,7 @@ export type BarbeShopServiceUncheckedCreateWithoutBarbershopInput = {
   id?: string
   name: string
   description: string
-  imageURL: string
+  imageUrl: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -727,7 +727,7 @@ export type BarbeShopServiceScalarWhereInput = {
   id?: Prisma.StringFilter<"BarbeShopService"> | string
   name?: Prisma.StringFilter<"BarbeShopService"> | string
   description?: Prisma.StringFilter<"BarbeShopService"> | string
-  imageURL?: Prisma.StringFilter<"BarbeShopService"> | string
+  imageUrl?: Prisma.StringFilter<"BarbeShopService"> | string
   price?:
     | Prisma.DecimalFilter<"BarbeShopService">
     | runtime.Decimal
@@ -743,7 +743,7 @@ export type BarbeShopServiceCreateWithoutBookingsInput = {
   id?: string
   name: string
   description: string
-  imageURL: string
+  imageUrl: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -754,7 +754,7 @@ export type BarbeShopServiceUncheckedCreateWithoutBookingsInput = {
   id?: string
   name: string
   description: string
-  imageURL: string
+  imageUrl: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   barberId: string
   createdAt?: Date | string
@@ -793,7 +793,7 @@ export type BarbeShopServiceUpdateWithoutBookingsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  imageURL?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   price?:
     | Prisma.DecimalFieldUpdateOperationsInput
     | runtime.Decimal
@@ -809,7 +809,7 @@ export type BarbeShopServiceUncheckedUpdateWithoutBookingsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  imageURL?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   price?:
     | Prisma.DecimalFieldUpdateOperationsInput
     | runtime.Decimal
@@ -825,7 +825,7 @@ export type BarbeShopServiceCreateManyBarbershopInput = {
   id?: string
   name: string
   description: string
-  imageURL: string
+  imageUrl: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -835,7 +835,7 @@ export type BarbeShopServiceUpdateWithoutBarbershopInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  imageURL?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   price?:
     | Prisma.DecimalFieldUpdateOperationsInput
     | runtime.Decimal
@@ -851,7 +851,7 @@ export type BarbeShopServiceUncheckedUpdateWithoutBarbershopInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  imageURL?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   price?:
     | Prisma.DecimalFieldUpdateOperationsInput
     | runtime.Decimal
@@ -867,7 +867,7 @@ export type BarbeShopServiceUncheckedUpdateManyWithoutBarbershopInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  imageURL?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   price?:
     | Prisma.DecimalFieldUpdateOperationsInput
     | runtime.Decimal
@@ -924,7 +924,7 @@ export type BarbeShopServiceSelect<
     id?: boolean
     name?: boolean
     description?: boolean
-    imageURL?: boolean
+    imageUrl?: boolean
     price?: boolean
     barberId?: boolean
     createdAt?: boolean
@@ -946,7 +946,7 @@ export type BarbeShopServiceSelectCreateManyAndReturn<
     id?: boolean
     name?: boolean
     description?: boolean
-    imageURL?: boolean
+    imageUrl?: boolean
     price?: boolean
     barberId?: boolean
     createdAt?: boolean
@@ -964,7 +964,7 @@ export type BarbeShopServiceSelectUpdateManyAndReturn<
     id?: boolean
     name?: boolean
     description?: boolean
-    imageURL?: boolean
+    imageUrl?: boolean
     price?: boolean
     barberId?: boolean
     createdAt?: boolean
@@ -978,7 +978,7 @@ export type BarbeShopServiceSelectScalar = {
   id?: boolean
   name?: boolean
   description?: boolean
-  imageURL?: boolean
+  imageUrl?: boolean
   price?: boolean
   barberId?: boolean
   createdAt?: boolean
@@ -992,7 +992,7 @@ export type BarbeShopServiceOmit<
   | "id"
   | "name"
   | "description"
-  | "imageURL"
+  | "imageUrl"
   | "price"
   | "barberId"
   | "createdAt"
@@ -1034,7 +1034,7 @@ export type $BarbeShopServicePayload<
       id: string
       name: string
       description: string
-      imageURL: string
+      imageUrl: string
       price: runtime.Decimal
       barberId: string
       createdAt: Date
@@ -1681,7 +1681,7 @@ export interface BarbeShopServiceFieldRefs {
   readonly id: Prisma.FieldRef<"BarbeShopService", "String">
   readonly name: Prisma.FieldRef<"BarbeShopService", "String">
   readonly description: Prisma.FieldRef<"BarbeShopService", "String">
-  readonly imageURL: Prisma.FieldRef<"BarbeShopService", "String">
+  readonly imageUrl: Prisma.FieldRef<"BarbeShopService", "String">
   readonly price: Prisma.FieldRef<"BarbeShopService", "Decimal">
   readonly barberId: Prisma.FieldRef<"BarbeShopService", "String">
   readonly createdAt: Prisma.FieldRef<"BarbeShopService", "DateTime">

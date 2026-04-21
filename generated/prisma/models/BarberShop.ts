@@ -29,7 +29,7 @@ export type BarberShopMinAggregateOutputType = {
   name: string | null
   address: string | null
   description: string | null
-  imageURL: string | null
+  imageUrl: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -39,7 +39,7 @@ export type BarberShopMaxAggregateOutputType = {
   name: string | null
   address: string | null
   description: string | null
-  imageURL: string | null
+  imageUrl: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -50,7 +50,7 @@ export type BarberShopCountAggregateOutputType = {
   address: number
   phone: number
   description: number
-  imageURL: number
+  imageUrl: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -61,7 +61,7 @@ export type BarberShopMinAggregateInputType = {
   name?: true
   address?: true
   description?: true
-  imageURL?: true
+  imageUrl?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -71,7 +71,7 @@ export type BarberShopMaxAggregateInputType = {
   name?: true
   address?: true
   description?: true
-  imageURL?: true
+  imageUrl?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -82,7 +82,7 @@ export type BarberShopCountAggregateInputType = {
   address?: true
   phone?: true
   description?: true
-  imageURL?: true
+  imageUrl?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -173,7 +173,7 @@ export type BarberShopGroupByOutputType = {
   address: string
   phone: string[]
   description: string
-  imageURL: string
+  imageUrl: string
   createdAt: Date
   updatedAt: Date
   _count: BarberShopCountAggregateOutputType | null
@@ -203,7 +203,7 @@ export type BarberShopWhereInput = {
   address?: Prisma.StringFilter<"BarberShop"> | string
   phone?: Prisma.StringNullableListFilter<"BarberShop">
   description?: Prisma.StringFilter<"BarberShop"> | string
-  imageURL?: Prisma.StringFilter<"BarberShop"> | string
+  imageUrl?: Prisma.StringFilter<"BarberShop"> | string
   createdAt?: Prisma.DateTimeFilter<"BarberShop"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"BarberShop"> | Date | string
   services?: Prisma.BarbeShopServiceListRelationFilter
@@ -215,7 +215,7 @@ export type BarberShopOrderByWithRelationInput = {
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  imageURL?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   services?: Prisma.BarbeShopServiceOrderByRelationAggregateInput
@@ -231,7 +231,7 @@ export type BarberShopWhereUniqueInput = Prisma.AtLeast<
     address?: Prisma.StringFilter<"BarberShop"> | string
     phone?: Prisma.StringNullableListFilter<"BarberShop">
     description?: Prisma.StringFilter<"BarberShop"> | string
-    imageURL?: Prisma.StringFilter<"BarberShop"> | string
+    imageUrl?: Prisma.StringFilter<"BarberShop"> | string
     createdAt?: Prisma.DateTimeFilter<"BarberShop"> | Date | string
     updatedAt?: Prisma.DateTimeFilter<"BarberShop"> | Date | string
     services?: Prisma.BarbeShopServiceListRelationFilter
@@ -245,7 +245,7 @@ export type BarberShopOrderByWithAggregationInput = {
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  imageURL?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.BarberShopCountOrderByAggregateInput
@@ -266,7 +266,7 @@ export type BarberShopScalarWhereWithAggregatesInput = {
   address?: Prisma.StringWithAggregatesFilter<"BarberShop"> | string
   phone?: Prisma.StringNullableListFilter<"BarberShop">
   description?: Prisma.StringWithAggregatesFilter<"BarberShop"> | string
-  imageURL?: Prisma.StringWithAggregatesFilter<"BarberShop"> | string
+  imageUrl?: Prisma.StringWithAggregatesFilter<"BarberShop"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"BarberShop"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"BarberShop"> | Date | string
 }
@@ -277,7 +277,7 @@ export type BarberShopCreateInput = {
   address: string
   phone?: Prisma.BarberShopCreatephoneInput | string[]
   description: string
-  imageURL: string
+  imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
   services?: Prisma.BarbeShopServiceCreateNestedManyWithoutBarbershopInput
@@ -289,7 +289,7 @@ export type BarberShopUncheckedCreateInput = {
   address: string
   phone?: Prisma.BarberShopCreatephoneInput | string[]
   description: string
-  imageURL: string
+  imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
   services?: Prisma.BarbeShopServiceUncheckedCreateNestedManyWithoutBarbershopInput
@@ -301,7 +301,7 @@ export type BarberShopUpdateInput = {
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.BarberShopUpdatephoneInput | string[]
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  imageURL?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   services?: Prisma.BarbeShopServiceUpdateManyWithoutBarbershopNestedInput
@@ -313,7 +313,7 @@ export type BarberShopUncheckedUpdateInput = {
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.BarberShopUpdatephoneInput | string[]
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  imageURL?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   services?: Prisma.BarbeShopServiceUncheckedUpdateManyWithoutBarbershopNestedInput
@@ -325,7 +325,7 @@ export type BarberShopCreateManyInput = {
   address: string
   phone?: Prisma.BarberShopCreatephoneInput | string[]
   description: string
-  imageURL: string
+  imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -336,7 +336,7 @@ export type BarberShopUpdateManyMutationInput = {
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.BarberShopUpdatephoneInput | string[]
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  imageURL?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -347,7 +347,7 @@ export type BarberShopUncheckedUpdateManyInput = {
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.BarberShopUpdatephoneInput | string[]
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  imageURL?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -366,7 +366,7 @@ export type BarberShopCountOrderByAggregateInput = {
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  imageURL?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -376,7 +376,7 @@ export type BarberShopMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   address?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  imageURL?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -386,7 +386,7 @@ export type BarberShopMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   address?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  imageURL?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -437,7 +437,7 @@ export type BarberShopCreateWithoutServicesInput = {
   address: string
   phone?: Prisma.BarberShopCreatephoneInput | string[]
   description: string
-  imageURL: string
+  imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -448,7 +448,7 @@ export type BarberShopUncheckedCreateWithoutServicesInput = {
   address: string
   phone?: Prisma.BarberShopCreatephoneInput | string[]
   description: string
-  imageURL: string
+  imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -487,7 +487,7 @@ export type BarberShopUpdateWithoutServicesInput = {
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.BarberShopUpdatephoneInput | string[]
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  imageURL?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -498,7 +498,7 @@ export type BarberShopUncheckedUpdateWithoutServicesInput = {
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.BarberShopUpdatephoneInput | string[]
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  imageURL?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -551,7 +551,7 @@ export type BarberShopSelect<
     address?: boolean
     phone?: boolean
     description?: boolean
-    imageURL?: boolean
+    imageUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     services?: boolean | Prisma.BarberShop$servicesArgs<ExtArgs>
@@ -570,7 +570,7 @@ export type BarberShopSelectCreateManyAndReturn<
     address?: boolean
     phone?: boolean
     description?: boolean
-    imageURL?: boolean
+    imageUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   },
@@ -587,7 +587,7 @@ export type BarberShopSelectUpdateManyAndReturn<
     address?: boolean
     phone?: boolean
     description?: boolean
-    imageURL?: boolean
+    imageUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   },
@@ -600,7 +600,7 @@ export type BarberShopSelectScalar = {
   address?: boolean
   phone?: boolean
   description?: boolean
-  imageURL?: boolean
+  imageUrl?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
@@ -614,7 +614,7 @@ export type BarberShopOmit<
   | "address"
   | "phone"
   | "description"
-  | "imageURL"
+  | "imageUrl"
   | "createdAt"
   | "updatedAt",
   ExtArgs["result"]["barberShop"]
@@ -650,7 +650,7 @@ export type $BarberShopPayload<
       address: string
       phone: string[]
       description: string
-      imageURL: string
+      imageUrl: string
       createdAt: Date
       updatedAt: Date
     },
@@ -1261,7 +1261,7 @@ export interface BarberShopFieldRefs {
   readonly address: Prisma.FieldRef<"BarberShop", "String">
   readonly phone: Prisma.FieldRef<"BarberShop", "String[]">
   readonly description: Prisma.FieldRef<"BarberShop", "String">
-  readonly imageURL: Prisma.FieldRef<"BarberShop", "String">
+  readonly imageUrl: Prisma.FieldRef<"BarberShop", "String">
   readonly createdAt: Prisma.FieldRef<"BarberShop", "DateTime">
   readonly updatedAt: Prisma.FieldRef<"BarberShop", "DateTime">
 }
