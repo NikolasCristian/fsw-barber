@@ -1,15 +1,13 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import { Metadata } from "next"
+import { Inter } from "next/font/google"
 import "./globals.css"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-})
+const inter = Inter({ subsets: ["latin"] })
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-})
+export const metadata: Metadata = {
+  title: "FSW Barber",
+  description: "Agende seu horário com os melhores barbeiros da cidade!",
+}
 
 export default function RootLayout({
   children,
@@ -17,10 +15,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
-      </body>
+    <html lang="pt-BR" className="dark">
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
