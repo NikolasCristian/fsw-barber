@@ -3,6 +3,7 @@ import { Button } from "../../_components/ui/button"
 import Image from "next/image"
 import { ChevronLeftIcon, MapPinIcon, MenuIcon, StarIcon } from "lucide-react"
 import Link from "next/link"
+import { notFound } from "next/navigation"
 
 interface BarbershopPageProps {
   params: Promise<{
@@ -16,6 +17,10 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
   const barbershop = await db.barberShop.findUnique({
     where: { id },
   })
+
+  if (!barbershop) {
+    return notFound()
+  }
 
   return (
     <div>
