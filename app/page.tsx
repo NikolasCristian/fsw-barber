@@ -2,13 +2,12 @@ import Header from "./_components/header"
 import { Input } from "./_components/ui/input"
 import { Button } from "./_components/ui/button"
 import { Card, CardContent } from "./_components/ui/card"
-import { Badge } from "./_components/ui/badge"
 import BarberShopItem from "./_components/ui/barbershop-item"
-
-import { EyeIcon, FootprintsIcon, SearchIcon } from "lucide-react"
+import { quickSearchOptions } from "./_constants/search"
+import { SearchIcon } from "lucide-react"
 import Image from "next/image"
-import { Avatar, AvatarFallback, AvatarImage } from "./_components/ui/avatar"
 import { db } from "./_lib/prisma"
+import BookingItem from "./_constants/bookingtem"
 
 const Home = async () => {
   const barbershops = await db.barberShop.findMany()
@@ -35,35 +34,17 @@ const Home = async () => {
         </div>
 
         <div className="mt-6 flex gap-3 overflow-x-scroll [&::-webkit-scrollbar]:hidden">
-          <Button variant="ghost" className="gap-2">
-            <Image src="/Cabelo.svg" alt="Cabelo" height={16} width={16} />
-            Cabelo
-          </Button>
-
-          <Button variant="ghost" className="gap-2">
-            <Image src="/Barba.svg" alt="Barba" height={16} width={16} />
-            Barba
-          </Button>
-
-          <Button variant="ghost" className="gap-2">
-            <Image
-              src="/Acabamento.svg"
-              alt="Acabamento"
-              height={16}
-              width={16}
-            />
-            Acabamento
-          </Button>
-
-          <Button variant="ghost" className="gap-2">
-            <FootprintsIcon size={16} />
-            Pézinho
-          </Button>
-
-          <Button variant="ghost" className="gap-2">
-            <EyeIcon size={16} />
-            Sobrancelha
-          </Button>
+          {quickSearchOptions.map((option) => (
+            <Button key={option.title} variant="ghost" className="gap-2">
+              <Image
+                src={option.imageUrl}
+                alt={option.title}
+                height={16}
+                width={16}
+              />
+              {option.title}
+            </Button>
+          ))}
         </div>
 
         <div className="relative mt-6 h-45 w-full overflow-hidden rounded-2xl">
@@ -75,34 +56,7 @@ const Home = async () => {
           />
         </div>
 
-        <h2 className="mt-6 mb-3 text-xs font-bold text-gray-400 uppercase">
-          Agendamentos
-        </h2>
-
-        <Card>
-          <CardContent className="flex items-center justify-between p-4">
-            <div className="flex flex-col gap-2">
-              <Badge className="w-fit">Confirmado</Badge>
-              <h3 className="text-xl font-bold">Corte de Cabelo</h3>
-              <div className="flex items-center gap-2">
-                <Avatar size="sm">
-                  <AvatarImage
-                    src="./AvatarBaarber.png"
-                    alt="Avatar do Vintage Barber"
-                  />
-                  <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
-                <p>Vintage Barber</p>
-              </div>
-            </div>
-
-            <div className="border-border/50 flex min-w-22.5 flex-col items-center justify-center border-l pl-4">
-              <p className="text-sm">Abril</p>
-              <p className="text-2xl font-bold">21</p>
-              <p className="text-muted-foreground text-sm">12:00</p>
-            </div>
-          </CardContent>
-        </Card>
+        <BookingItem />
 
         <h2 className="mt-6 mb-3 text-xs font-bold text-gray-400 uppercase">
           Recomendados
