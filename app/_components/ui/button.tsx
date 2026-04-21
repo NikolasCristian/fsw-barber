@@ -37,7 +37,7 @@ const buttonVariants = cva(
         warning: "bg-yellow-500/10 text-yellow-500 hover:bg-yellow-500/20",
 
         premium:
-          "bg-gradient-to-r from-primary to-purple-500 text-white hover:opacity-90 shadow-md",
+          "bg-zinc-900/90 backdrop-blur-xl border border-white/10 hover:bg-zinc-800/90 shadow-lg",
       },
 
       size: {
