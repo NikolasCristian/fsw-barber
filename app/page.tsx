@@ -3,27 +3,32 @@ import { Input } from "./_components/ui/input"
 import { Button } from "./_components/ui/button"
 import { Card, CardContent } from "./_components/ui/card"
 import { Badge } from "./_components/ui/badge"
+import BarberShopItem from "./_components/ui/barbershop-item"
 
 import { SearchIcon } from "lucide-react"
 import Image from "next/image"
 import { Avatar, AvatarFallback, AvatarImage } from "./_components/ui/avatar"
+import { db } from "./_lib/prisma"
 
-const Home = () => {
+const Home = async () => {
+  const barbershops = await db.barberShop.findMany()
+  console.log(barbershops)
+
   return (
     <div>
       <Header />
       <div className="p-5">
         <h2 className="text-xl font-bold">Olá, Nikolas!</h2>
-        <p>Terça, 21 de Abril</p>
+        <p>Terça-feira, 21 de Abril.</p>
 
         <div className="mt-6 flex flex-row items-center gap-2">
           <Input placeholder="Faça sua busca..." />
-          <Button className="h-8 w-8 p-0">
+          <Button variant="secondary" className="h-8 w-8 px-1.5">
             <SearchIcon />
           </Button>
         </div>
 
-        <div className="relative mt-3 h-56 w-full overflow-hidden rounded-2xl">
+        <div className="relative mt-6 h-45 w-full overflow-hidden rounded-2xl">
           <Image
             src="/Banner-01.png"
             alt="Agende nos melhores com FSW Barber"
@@ -32,7 +37,11 @@ const Home = () => {
           />
         </div>
 
-        <Card className="mt-6">
+        <h2 className="mt-6 mb-3 text-xs font-bold text-gray-400 uppercase">
+          Agendamentos
+        </h2>
+
+        <Card>
           <CardContent className="flex items-center justify-between p-4">
             <div className="flex flex-col gap-2">
               <Badge className="w-fit">Confirmado</Badge>
@@ -49,13 +58,22 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="border-muted flex flex-col items-center justify-center self-stretch border-l-2 pl-8">
+            <div className="border-border/50 flex min-w-22.5 flex-col items-center justify-center border-l pl-4">
               <p className="text-sm">Abril</p>
               <p className="text-2xl font-bold">21</p>
               <p className="text-muted-foreground text-sm">12:00</p>
             </div>
           </CardContent>
         </Card>
+
+        <h2 className="mt-6 mb-3 text-xs font-bold text-gray-400 uppercase">
+          Recomendados
+        </h2>
+        <div className="flex gap-4 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {barbershops.map((barbershop) => (
+            <BarberShopItem key={barbershop.id} barbershop={barbershop} />
+          ))}
+        </div>
       </div>
     </div>
   )

@@ -1,10 +1,10 @@
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -14,7 +14,7 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  bookings booking[]
+  bookings Booking[]
 }
 
 model BarberShop {
@@ -24,32 +24,33 @@ model BarberShop {
   phone       String[]
   description String
   imageUrl    String
-  createdAt   DateTime           @default(now())
-  updatedAt   DateTime           @updatedAt
-  services    BarbeShopService[]
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  services    BarberShopService[]
 }
 
-model BarbeShopService {
-  id          String     @id @default(uuid())
+model BarberShopService {
+  id          String      @id @default(uuid())
   name        String
   description String
   imageUrl    String
-  price       Decimal    @db.Decimal(10, 2)
+  price       Decimal     @db.Decimal(10, 2)
   barberId    String
-  barbershop  BarberShop @relation(fields: [barberId], references: [id])
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+  barbershop  BarberShop  @relation(fields: [barberId], references: [id])
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 
-  bookings booking[]
+  bookings    Booking[]
 }
 
-model booking {
-  id        String           @id @default(uuid())
+model Booking {
+  id        String             @id @default(uuid())
   userId    String
-  user      User             @relation(fields: [userId], references: [id])
+  user      User               @relation(fields: [userId], references: [id])
   serviceId String
-  service   BarbeShopService @relation(fields: [serviceId], references: [id])
+  service   BarberShopService  @relation(fields: [serviceId], references: [id])
   date      DateTime
-  createdAt DateTime         @default(now())
-  updatedAt DateTime         @updatedAt
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
 }
