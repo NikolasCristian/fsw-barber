@@ -11,17 +11,24 @@ const ServiceItem = ({ service }: ServiceItemProps) => {
   return (
     <Card>
       <CardContent className="flex items-center gap-3 p-3">
-        <div className="relative h-27.5 max-h-27.5 w-27.5 min-w-27.5">
+        {/* IMAGEM */}
+        <div className="relative h-27.5 w-27.5 min-w-27.5">
           <Image
             alt={service.name}
-            src={service.imageUrl || ""}
+            src={service.imageUrl}
             fill
             className="rounded-xl object-cover"
           />
         </div>
-        <div className="space-y-1">
+
+        {/* INFO */}
+        <div className="w-full space-y-1">
           <h3 className="font-bold">{service.name}</h3>
-          <p className="text-sm text-gray-400">{service.description}</p>
+
+          <p className="text-muted-foreground line-clamp-2 text-sm">
+            {service.description}
+          </p>
+
           <div className="flex items-center justify-between">
             <p className="font-bold text-blue-500">
               {Intl.NumberFormat("pt-BR", {
@@ -29,7 +36,8 @@ const ServiceItem = ({ service }: ServiceItemProps) => {
                 currency: "BRL",
               }).format(Number(service.price))}
             </p>
-            <Button variant="glass" size="sm">
+
+            <Button variant="secondary" size="sm">
               Reservar
             </Button>
           </div>
