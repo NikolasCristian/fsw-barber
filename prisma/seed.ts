@@ -108,7 +108,7 @@ async function seedDatabase() {
       })
 
       for (const service of services) {
-        await prisma.barbeShopService.create({
+        await prisma.barberShopService.create({
           // Sem o "r" conforme seu schema: BarbeShop
           data: {
             name: service.name,
