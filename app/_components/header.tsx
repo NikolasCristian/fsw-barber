@@ -55,16 +55,18 @@ const Header = () => {
             </div>
 
             <div className="flex flex-col gap-1 border-b border-solid py-5">
-              <SheetClose
-                render={
-                  <Button asChild variant="secondary" className="justify-start">
-                    <Link href="/" className="flex items-center gap-2">
-                      <HomeIcon size={18} />
-                      Início
-                    </Link>
-                  </Button>
-                }
-              />
+              <SheetClose>
+                <Button
+                  asChild
+                  variant="secondary"
+                  className="w-full justify-start gap-2"
+                >
+                  <Link href="/">
+                    <HomeIcon size={18} />
+                    Início
+                  </Link>
+                </Button>
+              </SheetClose>
 
               <Button variant="success" className="justify-start gap-2">
                 <CalendarIcon size={18} />
