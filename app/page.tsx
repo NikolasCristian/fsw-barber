@@ -1,7 +1,6 @@
 import Header from "./_components/header"
 import { Input } from "./_components/ui/input"
 import { Button } from "./_components/ui/button"
-import { Card, CardContent } from "./_components/ui/card"
 import BarberShopItem from "./_components/ui/barbershop-item"
 import { quickSearchOptions } from "./_constants/search"
 import { SearchIcon } from "lucide-react"
@@ -26,10 +25,11 @@ const Home = async () => {
         <h2 className="text-xl font-bold">Olá, Nikolas!</h2>
         <p>Terça-feira, 21 de Abril.</p>
 
-        <div className="mt-6 flex flex-row items-center gap-2">
-          <Input placeholder="Faça sua busca..." />
-          <Button variant="secondary" className="h-8 w-8 px-1.5">
-            <SearchIcon />
+        <div className="mt-6 flex items-center gap-2">
+          <Input placeholder="Faça sua busca..." className="h-9" />
+
+          <Button variant="secondary" size="icon" className="h-9 w-9 shrink-0">
+            <SearchIcon size={16} />
           </Button>
         </div>
 

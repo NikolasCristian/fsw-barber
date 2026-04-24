@@ -29,31 +29,37 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
 
   return (
     <div>
-      <div className="relative h-62.5 w-full">
+      <div className="relative h-65 w-full">
         <Image
           src={barbershop?.imageUrl || ""}
           alt={barbershop?.name || "Barbershop Image"}
           fill
           className="object-cover"
+          priority
         />
 
+        {/* Botão voltar */}
         <Button
-          size="icon"
-          variant="premium"
-          className="absolute top-4 left-4"
           asChild
+          size="icon"
+          variant="secondary"
+          className="absolute top-4 left-4 z-10"
         >
           <Link href="/">
             <ChevronLeftIcon size={16} />
           </Link>
         </Button>
 
+        {/* Botão menu */}
         <Button
+          asChild
           size="icon"
-          variant="premium"
-          className="absolute top-4 right-4"
+          variant="secondary"
+          className="absolute top-4 right-4 z-10"
         >
-          <MenuIcon size={16} />
+          <Link href="/">
+            <MenuIcon size={16} />
+          </Link>
         </Button>
       </div>
 

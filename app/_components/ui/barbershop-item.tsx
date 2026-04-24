@@ -41,7 +41,7 @@ const BarberShopItem = ({ barbershop }: BarberShopItemProps) => {
             {barbershop.address}
           </p>
 
-          <Button variant="ghost" className="mt-3 w-full" asChild>
+          <Button asChild variant="ghost" className="mt-3 w-full">
             <Link href={`/barbershops/${barbershop.id}`}>Reservar</Link>
           </Button>
         </div>

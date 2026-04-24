@@ -32,7 +32,7 @@ const buttonVariants = cva(
 
         soft: "bg-muted text-foreground hover:bg-muted/70",
 
-        success: "bg-emerald-500/10 text-emerald-500 hover:bg-emerald-500/20",
+        success: "hover:bg-gray-500/20",
 
         warning: "bg-yellow-500/10 text-yellow-500 hover:bg-yellow-500/20",
 
