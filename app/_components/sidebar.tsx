@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "./ui/button"
 import {
   CalendarIcon,
@@ -16,7 +18,6 @@ import {
   SheetTrigger,
 } from "./ui/sheet"
 import { quickSearchOptions } from "../_constants/search"
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import Link from "next/link"
 import {
   Dialog,
@@ -26,8 +27,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog"
+import { signIn, signOut, useSession } from "next-auth/react"
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 
 const SideBarButton = () => {
+  const { data } = useSession()
+  const handlLoginWithGoogleClick = () => signIn("google")
+  const handlLogoutClick = () => signOut()
   return (
     <Sheet>
       <SheetTrigger
@@ -46,45 +52,44 @@ const SideBarButton = () => {
           <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
 
-        <div className="flex items-center justify-between gap-2 border-b border-solid py-5">
-          <h2 className="text-lg">Olá, Faça seu login!</h2>
-          <Dialog>
-            <DialogTrigger
-              render={
-                <Button variant="secondary" size="icon">
-                  <LogInIcon />
-                </Button>
-              }
-            />
-
-            <DialogContent className="rounded-2xl bg-black/10 text-white shadow-[0_8px_30px_rgba(0,0,0,0.5)] backdrop-blur-lg">
-              <DialogHeader className="text-center">
-                <DialogTitle>Faça login na plataforma</DialogTitle>
-                <DialogDescription>
-                  Conecte-se usando sua conta do Google
-                </DialogDescription>
-              </DialogHeader>
-
-              <Button variant="glass" className="flex items-center gap-2">
-                <Image
-                  src="/Google.svg"
-                  width={18}
-                  height={18}
-                  alt="Fazer login com o Google"
+        <div className="border-b border-white/10 py-5">
+          {data?.user ? (
+            <div className="flex items-center gap-3">
+              <Avatar size="lg">
+                <AvatarImage
+                  src={data?.user?.image ?? ""}
+                  alt={data.user.name ?? "User"}
                 />
-                Google
-              </Button>
-            </DialogContent>
-          </Dialog>
-          {/*<Avatar size="lg">
-            <AvatarImage src="/AvatarBaarber.png" alt="User" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+                <AvatarFallback>{data.user.name?.[0] ?? "U"}</AvatarFallback>
+              </Avatar>
 
-          <div>
-            <p className="font-bold">Pedro Gonçalves</p>
-            <p className="text-xs">pedrogoncalves@gmail.com</p>
-          </div>*/}
+              <div className="flex flex-col">
+                <p className="text-sm leading-none font-semibold">
+                  {data.user.name}
+                </p>
+                <p className="max-w-45 truncate text-xs text-gray-400">
+                  {data.user.email}
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div className="flex flex-col items-center gap-4 text-center">
+              <h2 className="text-base font-semibold">Faça login</h2>
+
+              <p className="max-w-55 text-xs text-gray-400">
+                Conecte-se com sua conta do Google para continuar
+              </p>
+
+              <Button
+                variant="glass"
+                className="flex w-full items-center justify-center gap-2"
+                onClick={handlLoginWithGoogleClick}
+              >
+                <Image src="/Google.svg" width={18} height={18} alt="Google" />
+                Continuar com Google
+              </Button>
+            </div>
+          )}
         </div>
 
         <div className="flex flex-col gap-1 border-b border-solid py-5">
@@ -126,7 +131,11 @@ const SideBarButton = () => {
         </div>
 
         <div className="gap-1py-5 flex flex-col">
-          <Button variant="success" className="justify-start gap-2">
+          <Button
+            variant="success"
+            className="justify-start gap-2"
+            onClick={handlLogoutClick}
+          >
             <LogOutIcon size={18} />
             Sair da conta
           </Button>
