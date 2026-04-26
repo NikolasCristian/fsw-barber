@@ -1,11 +1,12 @@
 import { db } from "@/app/_lib/prisma"
 import { Button } from "../../_components/ui/button"
 import Image from "next/image"
-import { ChevronLeftIcon, MapPinIcon, MenuIcon, StarIcon } from "lucide-react"
+import { ChevronLeftIcon, MapPinIcon, StarIcon } from "lucide-react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import ServiceItem from "@/app/_components/service-item"
 import PhoneItems from "@/app/_components/phone-item"
+import SideBarButton from "@/app/_components/sidebar"
 
 interface BarbershopPageProps {
   params: Promise<{
@@ -42,7 +43,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
         <Button
           asChild
           size="icon"
-          variant="secondary"
+          variant="premium"
           className="absolute top-4 left-4 z-10"
         >
           <Link href="/">
@@ -51,16 +52,9 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
         </Button>
 
         {/* Botão menu */}
-        <Button
-          asChild
-          size="icon"
-          variant="secondary"
-          className="absolute top-4 right-4 z-10"
-        >
-          <Link href="/">
-            <MenuIcon size={16} />
-          </Link>
-        </Button>
+        <div className="absolute top-4 right-4 z-10">
+          <SideBarButton />
+        </div>
       </div>
 
       <div className="border-b border-solid p-5">

@@ -2,6 +2,7 @@ import { BarberShopService } from "@prisma/client"
 import Image from "next/image"
 import { Button } from "./ui/button"
 import { Card, CardContent } from "./ui/card"
+import Link from "next/link"
 
 interface ServiceItemProps {
   service: BarberShopService
@@ -38,7 +39,7 @@ const ServiceItem = ({ service }: ServiceItemProps) => {
             </p>
 
             <Button asChild variant="secondary" size="sm">
-              <p>Reservar</p>
+              <Link href={`/barbershops/${service.id}`}>Reservar</Link>
             </Button>
           </div>
         </div>
