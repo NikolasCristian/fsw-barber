@@ -1,13 +1,7 @@
 "use client"
 
 import { Button } from "./ui/button"
-import {
-  CalendarIcon,
-  HomeIcon,
-  LogInIcon,
-  LogOutIcon,
-  MenuIcon,
-} from "lucide-react"
+import { CalendarIcon, HomeIcon, LogOutIcon, MenuIcon } from "lucide-react"
 import Image from "next/image"
 import {
   Sheet,
@@ -19,14 +13,6 @@ import {
 } from "./ui/sheet"
 import { quickSearchOptions } from "../_constants/search"
 import Link from "next/link"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "./ui/dialog"
 import { signIn, signOut, useSession } from "next-auth/react"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 
@@ -36,13 +22,11 @@ const SideBarButton = () => {
   const handlLogoutClick = () => signOut()
   return (
     <Sheet>
-      <SheetTrigger
-        render={
-          <Button size="icon" variant="premium" className="cursor-pointer">
-            <MenuIcon />
-          </Button>
-        }
-      />
+      <SheetTrigger asChild>
+        <Button size="icon" variant="premium" className="cursor-pointer">
+          <MenuIcon />
+        </Button>
+      </SheetTrigger>
 
       <SheetContent
         side="right"
@@ -64,7 +48,7 @@ const SideBarButton = () => {
               </Avatar>
 
               <div className="flex flex-col">
-                <p className="text-sm leading-none font-semibold">
+                <p className="text-sm font-semibold leading-none">
                   {data.user.name}
                 </p>
                 <p className="max-w-45 truncate text-xs text-gray-400">

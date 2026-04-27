@@ -12,36 +12,38 @@ interface BarberShopItemProps {
 
 const BarberShopItem = ({ barbershop }: BarberShopItemProps) => {
   return (
-    <Card className="min-w-40 overflow-hidden rounded-2xl">
-      <CardContent className="px-1 pt-1">
+    <Card className="min-w-40 overflow-hidden rounded-2xl border shadow-sm transition hover:shadow-md">
+      <CardContent className="p-2 py-1">
         {/* IMAGEM */}
         <div className="relative h-36 w-full">
           <Image
             src={barbershop.imageUrl}
             alt={barbershop.name}
             fill
-            className="rounded-2xl object-cover"
             sizes="176px"
+            className="rounded-xl object-cover"
           />
 
-          <Badge
-            className="absolute top-2 left-2 space-x-1"
-            variant="secondary"
-          >
-            <StarIcon size={12} className="fill-blue-600 stroke-blue-600" />
-            <p className="text-xs font-semibold">5,0</p>
+          <Badge className="absolute left-2 top-2 flex items-center gap-1 rounded-xl bg-black/80 px-2 py-0.5 backdrop-blur-sm">
+            <StarIcon size={12} className="fill-yellow-400 stroke-yellow-400" />
+            <span className="text-xs font-semibold text-white">5,0</span>
           </Badge>
         </div>
 
         {/* INFO */}
-        <div className="px-1 py-3">
-          <h3 className="truncate font-semibold">{barbershop.name}</h3>
+        <div className="space-y-1 px-1 pb-2 pt-3">
+          <h3 className="truncate text-sm font-semibold">{barbershop.name}</h3>
 
-          <p className="text-muted-foreground truncate text-sm">
+          <p className="text-muted-foreground truncate text-xs">
             {barbershop.address}
           </p>
 
-          <Button asChild variant="ghost" className="mt-3 w-full">
+          <Button
+            asChild
+            variant="ghost"
+            size="sm"
+            className="mt-2 w-full text-xs"
+          >
             <Link href={`/barbershops/${barbershop.id}`}>Reservar</Link>
           </Button>
         </div>

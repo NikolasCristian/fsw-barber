@@ -30,29 +30,30 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
 
   return (
     <div>
-      <div className="relative h-65 w-full">
-        <Image
-          src={barbershop?.imageUrl || ""}
-          alt={barbershop?.name || "Barbershop Image"}
-          fill
-          className="object-cover"
-          priority
-        />
+      <div className="h-65 relative w-full">
+        <div className="relative h-[250px] w-full">
+          <Image
+            src={barbershop.imageUrl}
+            alt={barbershop.name}
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
 
         {/* Botão voltar */}
         <Button
           asChild
           size="icon"
           variant="premium"
-          className="absolute top-4 left-4 z-10"
+          className="absolute left-4 top-4 z-10"
         >
           <Link href="/">
             <ChevronLeftIcon size={16} />
           </Link>
         </Button>
 
-        {/* Botão menu */}
-        <div className="absolute top-4 right-4 z-10">
+        <div className="absolute right-4 top-4 z-10">
           <SideBarButton />
         </div>
       </div>
@@ -71,14 +72,14 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
       </div>
 
       <div className="border-b border-solid p-5">
-        <h2 className="mb-2 text-xs font-bold text-gray-400 uppercase">
+        <h2 className="mb-2 text-xs font-bold uppercase text-gray-400">
           SOBRE NÓS
         </h2>
         <p className="text-sm">{barbershop?.description}</p>
       </div>
 
       <div className="space-y-3 border-b border-solid p-5">
-        <h2 className="text-xs font-bold text-gray-400 uppercase">SERVIÇOS</h2>
+        <h2 className="text-xs font-bold uppercase text-gray-400">SERVIÇOS</h2>
         <div className="space-y-3">
           {barbershop?.services.map((service) => (
             <ServiceItem key={service.id} service={service} />

@@ -11,13 +11,14 @@ interface ServiceItemProps {
 const ServiceItem = ({ service }: ServiceItemProps) => {
   return (
     <Card>
-      <CardContent className="flex items-center gap-3 p-3">
+      <CardContent className="flex items-center gap-3">
         {/* IMAGEM */}
-        <div className="relative h-27.5 w-27.5 min-w-27.5">
+        <div className="relative h-28 w-28 min-w-28">
           <Image
             alt={service.name}
             src={service.imageUrl}
             fill
+            sizes="112px"
             className="rounded-xl object-cover"
           />
         </div>
