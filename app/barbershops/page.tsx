@@ -20,22 +20,26 @@ const BarbershopsPage = async ({ searchParams }: BarbershopsPageProps) => {
     where: search
       ? {
           OR: [
-            {
-              name: {
-                contains: search,
-                mode: "insensitive",
-              },
-            },
-            {
-              services: {
-                some: {
+            params?.title
+              ? {
                   name: {
-                    contains: search,
+                    contains: params?.title,
                     mode: "insensitive",
                   },
-                },
-              },
-            },
+                }
+              : {},
+            params.service
+              ? {
+                  services: {
+                    some: {
+                      name: {
+                        contains: params?.service,
+                        mode: "insensitive",
+                      },
+                    },
+                  },
+                }
+              : {},
           ],
         }
       : {},
@@ -49,14 +53,20 @@ const BarbershopsPage = async ({ searchParams }: BarbershopsPageProps) => {
       </div>
       <div className="px-5">
         <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
-          Resultados para &quot;{params?.title || params?.service}
-          &quot;
+          Resultados para &quot;{search || "todas"}&quot;
         </h2>
-        <div className="grid grid-cols-2 gap-4">
-          {barbershops.map((barbershop) => (
-            <BarbershopItem key={barbershop.id} barbershop={barbershop} />
-          ))}
-        </div>
+
+        {barbershops.length > 0 ? (
+          <div className="grid grid-cols-2 gap-4">
+            {barbershops.map((barbershop) => (
+              <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+            ))}
+          </div>
+        ) : (
+          <p className="pt-12 text-center text-sm text-gray-500">
+            Nenhuma barbearia encontrada.
+          </p>
+        )}
       </div>
     </div>
   )

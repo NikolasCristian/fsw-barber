@@ -30,10 +30,10 @@ const SideBarButton = () => {
 
       <SheetContent
         side="right"
-        className="border-white/ w-80 overflow-x-auto border bg-black/80 p-6 backdrop-blur-xl"
+        className="border-white/ w-80 overflow-x-auto border bg-black/60 p-6 backdrop-blur-xl"
       >
         <SheetHeader>
-          <SheetTitle>Menu</SheetTitle>
+          <SheetTitle className="text-xl">Menu</SheetTitle>
         </SheetHeader>
 
         <div className="border-b border-white/10 py-5">
@@ -57,10 +57,10 @@ const SideBarButton = () => {
               </div>
             </div>
           ) : (
-            <div className="flex flex-col items-center gap-4 text-center">
+            <div className="flex flex-col items-center text-center">
               <h2 className="text-base font-semibold">Faça login</h2>
 
-              <p className="max-w-55 text-xs text-gray-400">
+              <p className="max-w-55 pb-5 text-xs text-gray-400">
                 Conecte-se com sua conta do Google para continuar
               </p>
 
@@ -98,19 +98,24 @@ const SideBarButton = () => {
 
         <div className="flex flex-col gap-1 border-b border-solid py-5">
           {quickSearchOptions.map((option) => (
-            <Button
-              key={option.title}
-              variant="success"
-              className="justify-start gap-2"
-            >
-              <Image
-                src={option.imageUrl}
-                alt={option.title}
-                height={16}
-                width={12}
-              />
-              {option.title}
-            </Button>
+            <SheetClose key={option.title} asChild>
+              <Button
+                asChild
+                key={option.title}
+                variant="success"
+                className="justify-start gap-2"
+              >
+                <Link href={`/barbershops?service=${option.title}`}>
+                  <Image
+                    src={option.imageUrl}
+                    alt={option.title}
+                    height={16}
+                    width={12}
+                  />
+                  {option.title}
+                </Link>
+              </Button>
+            </SheetClose>
           ))}
         </div>
 
