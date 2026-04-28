@@ -24,10 +24,12 @@ export default function RootLayout({
     <html lang="pt-BR" className={cn("dark", "font-sans", geist.variable)}>
       <body className={inter.className}>
         <AuthProvider>
-          {children}
-          <Footer />
-          <Toaster />
+          <div className="flex h-full flex-col">
+            <div className="flex-1">{children}</div>
+            <Footer />
+          </div>
         </AuthProvider>
+        <Toaster />
       </body>
     </html>
   )

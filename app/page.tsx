@@ -1,9 +1,7 @@
 import Header from "./_components/header"
-import { Input } from "./_components/ui/input"
 import { Button } from "./_components/ui/button"
 import BarberShopItem from "./_components/ui/barbershop-item"
 import { quickSearchOptions } from "./_constants/search"
-import { SearchIcon } from "lucide-react"
 import Image from "next/image"
 import { db } from "./_lib/prisma"
 import BookingItem from "./_constants/bookingtem"
@@ -26,7 +24,9 @@ const Home = async () => {
         <h2 className="text-xl font-bold">Olá, Nikolas!</h2>
         <p>Terça-feira, 21 de Abril.</p>
 
-        <Search />
+        <div className="pt-4">
+          <Search />
+        </div>
 
         <div className="mt-6 flex gap-3 overflow-x-scroll [&::-webkit-scrollbar]:hidden">
           {quickSearchOptions.map((option) => (

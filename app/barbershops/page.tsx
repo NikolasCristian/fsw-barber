@@ -5,14 +5,16 @@ import BarbershopItem from "../_components/ui/barbershop-item"
 import { db } from "../_lib/prisma"
 
 interface BarbershopsPageProps {
-  searchParams: {
+  searchParams: Promise<{
     title?: string
     service?: string
-  }
+  }>
 }
 
 const BarbershopsPage = async ({ searchParams }: BarbershopsPageProps) => {
-  const search = searchParams?.title || searchParams?.service
+  const params = await searchParams
+
+  const search = params?.title || params?.service
 
   const barbershops = await db.barberShop.findMany({
     where: search
@@ -40,14 +42,14 @@ const BarbershopsPage = async ({ searchParams }: BarbershopsPageProps) => {
   })
 
   return (
-    <div>
+    <div className="pb-5">
       <Header />
       <div className="my-6 px-5">
         <Search />
       </div>
       <div className="px-5">
         <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
-          Resultados para &quot;{searchParams?.title || searchParams?.service}
+          Resultados para &quot;{params?.title || params?.service}
           &quot;
         </h2>
         <div className="grid grid-cols-2 gap-4">

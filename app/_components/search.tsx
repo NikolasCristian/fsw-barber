@@ -41,7 +41,7 @@ const Search = () => {
                 <Input
                   placeholder="Faça sua busca..."
                   {...field}
-                  className="w-full"
+                  className="h-9"
                 />
               </FormControl>
               <FormMessage />
