@@ -41,8 +41,9 @@ const Home = async () => {
                 <Image
                   src={option.imageUrl}
                   alt={option.title}
-                  height={16}
-                  width={12}
+                  width={120}
+                  height={18}
+                  style={{ height: "auto" }}
                 />
                 {option.title}
               </Link>
@@ -50,7 +51,7 @@ const Home = async () => {
           ))}
         </div>
 
-        <div className="h-45 relative mt-6 w-full overflow-hidden rounded-2xl">
+        <div className="relative mt-6 h-44 w-full overflow-hidden rounded-2xl">
           <Image
             src="/Banner-01.png"
             alt="Agende nos melhores com FSW Barber"

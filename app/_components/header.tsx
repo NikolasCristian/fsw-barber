@@ -11,8 +11,9 @@ const Header = () => {
           <Image
             src="/logo.png"
             alt="Logo da barbearia"
-            height={18}
             width={120}
+            height={40}
+            className="h-6 w-auto object-contain"
           />
         </Link>
 

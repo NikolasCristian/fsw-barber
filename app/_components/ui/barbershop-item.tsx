@@ -24,8 +24,8 @@ const BarberShopItem = ({ barbershop }: BarberShopItemProps) => {
             className="rounded-xl object-cover"
           />
 
-          <Badge className="absolute left-2 top-2 flex items-center gap-1 rounded-xl bg-black/80 px-2 py-0.5 backdrop-blur-sm">
-            <StarIcon size={12} className="fill-yellow-400 stroke-yellow-400" />
+          <Badge className="absolute left-2 top-2 flex items-center gap-1 rounded-xl bg-gray-800 px-2 py-0.5 backdrop-blur-sm">
+            <StarIcon size={12} className="fill-blue-400 stroke-blue-400" />
             <span className="text-xs font-semibold text-white">5,0</span>
           </Badge>
         </div>

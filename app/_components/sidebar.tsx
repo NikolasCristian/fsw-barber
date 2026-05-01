@@ -30,7 +30,7 @@ const SideBarButton = () => {
 
       <SheetContent
         side="right"
-        className="border-white/ w-80 overflow-x-auto border bg-black/60 p-6 backdrop-blur-xl"
+        className="border-white/ w-80 overflow-x-auto border bg-black/60 p-6 backdrop-blur-xl [&::-webkit-scrollbar]:hidden"
       >
         <SheetHeader>
           <SheetTitle className="text-xl">Menu</SheetTitle>
@@ -109,8 +109,9 @@ const SideBarButton = () => {
                   <Image
                     src={option.imageUrl}
                     alt={option.title}
+                    width={16}
                     height={16}
-                    width={12}
+                    className="h-4 w-4 object-contain"
                   />
                   {option.title}
                 </Link>
