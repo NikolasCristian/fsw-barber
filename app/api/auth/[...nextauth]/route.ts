@@ -6,7 +6,7 @@ import GoogleProvider from "next-auth/providers/google"
 import type { Session } from "next-auth"
 import type { User } from "next-auth"
 
-const authOptions: NextAuthOptions = {
+export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db) as Adapter,
   providers: [
     GoogleProvider({

@@ -4,12 +4,15 @@ import BarberShopItem from "./_components/ui/barbershop-item"
 import { quickSearchOptions } from "./_constants/search"
 import Image from "next/image"
 import { db } from "./_lib/prisma"
-import BookingItem from "./_constants/bookingtem"
 import Search from "./_components/search"
 import Link from "next/link"
+import { getServerSession } from "next-auth"
+import { authOptions } from "./api/auth/[...nextauth]/route"
+import BookingItem from "./_constants/bookingtem"
 
 const Home = async () => {
   const barbershops = await db.barberShop.findMany()
+  const session = await getServerSession(authOptions)
 
   const popularBarbershops = await db.barberShop.findMany({
     orderBy: {
@@ -17,6 +20,21 @@ const Home = async () => {
     },
     take: 10,
   })
+
+  const bookings = session?.user
+    ? await db.booking.findMany({
+        where: {
+          userId: session?.user.id,
+        },
+        include: {
+          service: {
+            include: {
+              barbershop: true,
+            },
+          },
+        },
+      })
+    : []
 
   return (
     <div>
@@ -60,12 +78,20 @@ const Home = async () => {
           />
         </div>
 
-        <BookingItem />
+        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+          Agendamentos
+        </h2>
+
+        <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+          {bookings.map((booking) => (
+            <BookingItem key={booking.id} booking={booking} />
+          ))}
+        </div>
 
         <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
           Recomendados
         </h2>
-        <div className="flex gap-4 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex gap-3 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {barbershops.map((barbershop) => (
             <BarberShopItem key={barbershop.id} barbershop={barbershop} />
           ))}
