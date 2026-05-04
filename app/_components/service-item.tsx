@@ -104,7 +104,6 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
 
   const handlLoginWithGoogleClick = () => signIn("google")
 
-  // Função para desabilitar dias passados
   const disabledDays = (date: Date) => {
     return isBefore(date, startOfDay(new Date()))
   }
@@ -135,7 +134,6 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
         date: newDate.toISOString(),
       })
 
-      // 👇 AQUI É O QUE FALTA
       const updatedBookings = await getBookings({
         date: selectedDay,
         serviceId: service.id,
@@ -337,7 +335,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   </DialogTrigger>
 
                   <DialogContent className="bg-black sm:max-w-sm">
-                    <DialogHeader>
+                    <DialogHeader className="text-center">
                       <DialogTitle>Faça login</DialogTitle>
                       <DialogDescription>
                         Conecte-se com sua conta do Google para continuar

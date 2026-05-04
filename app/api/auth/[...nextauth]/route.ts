@@ -3,6 +3,8 @@ import { PrismaAdapter } from "@auth/prisma-adapter"
 import NextAuth, { type NextAuthOptions } from "next-auth"
 import { Adapter } from "next-auth/adapters"
 import GoogleProvider from "next-auth/providers/google"
+import type { Session } from "next-auth"
+import type { User } from "next-auth"
 
 const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db) as Adapter,
@@ -14,9 +16,9 @@ const authOptions: NextAuthOptions = {
   ],
 
   callbacks: {
-    async session({ session, token }) {
-      if (session.user && token?.sub) {
-        session.user.id = token.sub
+    async session({ session, user }: { session: Session; user: User }) {
+      if (session.user) {
+        session.user.id = user.id
       }
 
       return session
